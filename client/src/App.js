@@ -1,11 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import {BrowserRouter, Routes, Route,} from 'react-router-dom'
+import Homescreen from './screens/Homescreen';
 
 function App() {
   return (
     <div className="App">
-      <h1>Room Booking System</h1>
-      <button className="btn btn-primary">bootstrap button</button>
+      <Navbar/>
+      <BrowserRouter>
+      <Routes>
+
+      <Route path='/home' exact element={<Homescreen />}/>
+
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }

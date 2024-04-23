@@ -1,0 +1,28 @@
+[
+{
+     "name": "Room 1",
+       "imageurls": ["https://content.instantoffices.com/sc/Prod/images/centres/1600width/49771/49771-756135.webp?o=jpg",
+       "https://content.instantoffices.com/sc/Prod/images/centres/1600width/49771/49771-756136.webp?o=jpg",
+       "https://content.instantoffices.com/sc/Prod/images/centres/1600width/49771/49771-756137.webp?o=jpg"
+],
+       "rentperday": "10",
+       "type": "Delux",
+       "maxcount" : 3,
+       "phonenumber": "11111111",
+       "currentbookings:" : [],
+       "description:": "This is the first room."
+     },
+     {
+    "name": "Room 2",
+       "imageurls": ["https://content.instantoffices.com/sc/Prod/images/centres/1600width/49771/49771-756135.webp?o=jpg",
+       "https://content.instantoffices.com/sc/Prod/images/centres/1600width/49771/49771-756136.webp?o=jpg",
+       "https://content.instantoffices.com/sc/Prod/images/centres/1600width/49771/49771-756137.webp?o=jpg"
+],
+       "rentperday": "10",
+       "type": "Non-Delux",
+       "maxcount" : 3,
+       "phonenumber": "22222222",
+       "currentbookings:" : [],
+       "description:": "This is the second room."
+}
+]
