@@ -1,20 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
-// Define Room component
-const Room = ({ room }) => {
-  return (
-    <div>
-      <h1>{room.name}</h1>
-      {/* Add more room details here if needed */}
-    </div>
-  );
-}
+import Room from '../components/Room';
 
 const Homescreen = () => {
- 
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // Set loading state to true initially
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -22,13 +12,13 @@ const Homescreen = () => {
       try {
         const { data: response } = await axios.get('/api/rooms/getallrooms');
         setData(response);
-        setLoading(false);
+        setLoading(false); // Set loading state to false after data is fetched
       } catch (error) {
         setError(true);
         console.error(error.message);
-        setLoading(false);
+        setLoading(false); // Set loading state to false if there's an error
       }
-    }
+    };
 
     fetchData();
   }, []);
@@ -36,14 +26,19 @@ const Homescreen = () => {
   return (
     <div className='container'>
       <div className="row justify-content-center">
-        {loading ? (<h1>Loading...</h1>) : error ? (<h1>Error</h1>) : (data.map(room => (
-          <div className="col-md-9" key={room.id}>
+        {/* Render rooms if data is available */}
+        {!loading && !error && data.map(room => (
+          <div className="col-md-9 mt-2" key={room.id}>
             <Room room={room} />
           </div>
-        )))}
+        ))}
+        {/* Display loading message if loading */}
+        {loading && <h1>Loading...</h1>}
+        {/* Display error message if there's an error */}
+        {error && <h1>Error</h1>}
       </div>
     </div>
   );
-}
+};
 
 export default Homescreen;
