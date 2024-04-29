@@ -23,9 +23,9 @@ function Room({ room }) {
           <p>Type : {room.type}</p>
         </b>
         <div style={{ float: "right" }}>
-          <Link to={'/book/${room._id}'}>
-          <button className='btn btn-primary m-2'>Book Now</button>
-          </Link>
+        <Link to={`/book/${room._id}`}>
+        <button className='btn btn-primary m-2'>Book Now</button>
+        </Link>
           <Button variant="primary" onClick={handleShow}>View Details</Button>
         </div>
         <Modal show={show} onHide={handleClose} size='lg'>

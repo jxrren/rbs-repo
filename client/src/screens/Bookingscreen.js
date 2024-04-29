@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import {useParams} from "react-router-dom";
+import Loader from '../components/Loader';
+import Error from '../components/Error';
 
-function Bookingscreen(match) {
+function Bookingscreen() {
     const {roomid} = useParams()
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -10,12 +12,12 @@ function Bookingscreen(match) {
 
 
 
-    useEffect(async () =>{
+    useEffect( () =>{
 
         const fetchData = async() => {
             try{
                 setLoading(true);
-                const response = await axios.post('/api/rooms/getroombyid',{roomid:match.params.roomid}).data;
+                const response = await axios.post('/api/rooms/getroombyid',{roomid});
             setRoom(response.data);
             setLoading(false);
             } catch (error){
@@ -32,7 +34,7 @@ function Bookingscreen(match) {
     return (
         <div className='m-5'>
 
-            {loading?(<h1>Loading....</h1>):error?(<h1>Error....</h1>):(<div>
+            {loading ?(<h1><Loader/></h1>): error ? (<Error/>): (<div>
 
                 <div className='row justify-content-center mt-5 bs'>
                     <div className='col-md-6'>
