@@ -3,7 +3,7 @@ import {Button, Modal, Carousel} from 'react-bootstrap';
 import { Link } from "react-router-dom"; 
 
 
-function Room({ room }) {
+function Room({ room,fromdate, todate }) {
 
   const [show, setShow] = useState(false);
 
@@ -23,9 +23,14 @@ function Room({ room }) {
           <p>Type : {room.type}</p>
         </b>
         <div style={{ float: "right" }}>
-        <Link to={`/book/${room._id}`}>
+        {(fromdate && todate)&& (
+          <Link to={`/book/${room._id}/${fromdate}`}>
         <button className='btn btn-primary m-2'>Book Now</button>
         </Link>
+        )}
+
+
+        
           <Button variant="primary" onClick={handleShow}>View Details</Button>
         </div>
         <Modal show={show} onHide={handleClose} size='lg'>
